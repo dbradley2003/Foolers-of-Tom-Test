@@ -1,8 +1,14 @@
 /* General Reset */
+body {
+  text-align: center; 
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  
 }
 
 body {
@@ -18,3 +24,87 @@ header {
   text-align: center;
 } 
 
+#place-container {
+  max-width: 500px;
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
+
+  
+}
+
+
+/* Simple styles for the date input */
+#pick-date {
+  display: block;
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: 10px; 
+  padding-bottom: 3px; 
+  padding-top: 10px; 
+  padding-left: 5px; 
+
+  width: 500px;           /* tweak as needed */
+  /* padding: .5rem .5rem; */
+  border: 1px solid #212427;
+  border-radius: 3px;
+  font: inherit;
+  line-height: 1.5;
+  background-color: #fff;
+}
+
+#pick-date:hover {
+  border-color: #b6c0c9;
+}
+
+#pick-date:focus {
+  outline: none;
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.25); /* soft focus ring */
+}
+
+/* Make the native calendar icon clickable */
+#pick-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: .25rem;
+}
+
+#check {
+  width: 300px; 
+  line-height: 30px; 
+  margin-top: 10px;
+  font-weight: bold; 
+  border: 1px solid #212427;
+  border-radius: 10px;
+  background-color: whitesmoke; 
+  font-size: 14px;
+
+}
+
+#map-container {
+  display:block; 
+  margin-left: auto; 
+  margin-right: auto; 
+  height:240px;
+  border-radius:12px;
+  margin-top:10px;
+  border: 1px solid black;
+  width: 500px; 
+
+}
+
+#map {
+    height: 100%;
+  }
+
+#check:enabled:hover {
+  background-color: rgb(145, 145, 254);
+}
+
+
+
+p {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  color: gray; 
+}
