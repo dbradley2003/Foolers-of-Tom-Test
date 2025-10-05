@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Forecast {
-    private String description;
-    private double temperature;
+    private String rainClassification;
+    private double temperatureFahrenheit;
 }

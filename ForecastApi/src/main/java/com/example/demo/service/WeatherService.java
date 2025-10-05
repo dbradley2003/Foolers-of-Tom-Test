@@ -5,5 +5,5 @@ import com.example.demo.model.Forecast;
 
 public interface WeatherService {
 
-    Forecast getForecast(String city);
+    Forecast getForecast(String date, double lat, double lon);
 }

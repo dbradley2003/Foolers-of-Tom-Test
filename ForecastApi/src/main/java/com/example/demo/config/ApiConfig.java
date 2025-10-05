@@ -8,7 +8,7 @@ import org.springframework.web.client.RestClient;
 public class ApiConfig {
 
     @Bean
-    public RestClient restClient() {
-        return RestClient.builder().baseUrl("https://hydro1.gesdisc.eosdis.nasa.gov/daac-bin/access/timeseries.cgi").build();
+    public RestClient.Builder restClientBuilder() {
+        return RestClient.builder();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.functions;
 
+import com.example.demo.dto.ForecastQueryDTO;
 import com.example.demo.model.Forecast;
 import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
@@ -25,15 +26,18 @@ public class ForecastHandler {
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
 
-        final String city = request.getQueryParameters().get("city");
+        final String date = request.getQueryParameters().get("date");
+        final double lat = Double.parseDouble(request.getQueryParameters().get("lat"));
+        final double lon = Double.parseDouble(request.getQueryParameters().get("lon"));
+        ForecastQueryDTO query = new ForecastQueryDTO(date,lat,lon);
 
-        if (city == null) {
+        if (date == null) {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                    .body("Please provide a 'city' on the query string.").build();
+                    .body("Please provide a 'date' on the query string.").build();
         }
 
         // The FunctionInvoker will call the 'forecast' bean and return the result
-        final Forecast forecast = forecastFunction.apply(city);
+        final Forecast forecast = forecastFunction.apply(query);
 
         // Manually build the HTTP response with the result
         return request.createResponseBuilder(HttpStatus.OK)

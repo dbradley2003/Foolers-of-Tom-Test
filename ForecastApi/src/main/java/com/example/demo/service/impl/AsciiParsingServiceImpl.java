@@ -17,7 +17,11 @@ import java.util.TreeMap;
 public class AsciiParsingServiceImpl implements AsciiParsingService {
     private final RestClient restClient;
 
-    public AsciiParsingServiceImpl(RestClient restClient) {this.restClient = restClient;}
+    public AsciiParsingServiceImpl(RestClient.Builder restClientBuilder) {
+        this.restClient = restClientBuilder
+                .baseUrl("https://hydro1.gesdisc.eosdis.nasa.gov/daac-bin/access/timeseries.cgi")
+                .build();
+    }
 
     @Override
     public String parseAsciiResponse(String format, int limit) {

@@ -19,8 +19,8 @@ public class WeatherController {
     }
 
     @GetMapping("/forecast")
-    public Forecast getForecast(@RequestParam String city) {
-        return weatherServiceImpl.getForecast(city);
+    public Forecast getForecast(@RequestParam String date, @RequestParam double lat, @RequestParam double lon) {
+        return weatherServiceImpl.getForecast(date, lat, lon);
     }
 
 
