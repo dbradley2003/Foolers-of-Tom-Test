@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class Forecast {
     private String description;
     private double temperature;
-
 }

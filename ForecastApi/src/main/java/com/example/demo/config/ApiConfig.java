@@ -5,13 +5,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-public class AppConfig {
+public class ApiConfig {
 
     @Bean
     public RestClient restClient() {
-        return RestClient.builder()
-                // In a real application, you would set a base URL, headers, etc.
-                // .baseUrl("https://api.example.com")
-                .build();
+        return RestClient.builder().baseUrl("https://hydro1.gesdisc.eosdis.nasa.gov/daac-bin/access/timeseries.cgi").build();
     }
 }
