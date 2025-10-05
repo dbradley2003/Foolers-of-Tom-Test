@@ -1,6 +1,7 @@
 // *** BACKEND INTEGRATION NOTES ***
 // selectedPlace contains the user's selected location data: { name: string, lat: number, lng: number }
 // This is set when user selects a place from the autocomplete dropdown
+// Use this data to make your API calls to get weather information
 
 let selectedPlace = null; //  { name, lat, lng } after a selection
 
@@ -48,7 +49,7 @@ function boot() {
       title: "Selected location"
     });
 
-   
+    // 3) Selection handler -> build selectedPlace object, move map, enable button
     placeAutocomplete.addEventListener("gmp-select", (ev) => {
       const place = ev.place || (ev.placePrediction?.toPlace && ev.placePrediction.toPlace());
       if (!place) return;
@@ -81,6 +82,7 @@ function boot() {
       }).catch(err => console.error("fetchFields error:", err));
     });
 
+    // If user drags the marker, keep selectedPlace in sync
     marker.addListener("dragend", () => {
       const pos = marker.getPosition();
       if (!pos || !selectedPlace) return;
@@ -90,6 +92,7 @@ function boot() {
       renderPlaceJSON(selectedPlace);
     });
 
+    // Button click demo: shows it's reading from selectedPlace
     checkBtn.addEventListener("click", () => {
       if (!selectedPlace) return;
       statusEl.textContent = `OK! Using ${selectedPlace.name} (${selectedPlace.lat.toFixed(5)}, ${selectedPlace.lng.toFixed(5)}) on ${dateEl.value}`;
@@ -115,10 +118,9 @@ checkBtn.addEventListener("click", () => {
   // selectedPlace: { name, lat, lng } - the user's selected location
   // dateEl.value - the selected date from the date picker
 
- 
   
   // Create the weather square when button is clicked
-  showWeatherCard({ temperature: 20, description: "Sunny" });
+  showWeatherCard({ temperature: 20, description: "Snow" }); // Test with "Rain", "Snow", or "Clear"
 });
 
 function showWeatherCard(mockData) {
@@ -126,7 +128,7 @@ function showWeatherCard(mockData) {
   // This function displays the weather data in a card format
   // Replace mockData parameter with your actual weather API response
   // Expected data structure: { temperature: number, description: string }
- 
+  // Weather types: "Rain", "Snow", "Clear"
 
   if (weatherSquare) {
     return;
@@ -162,21 +164,11 @@ function showWeatherCard(mockData) {
   // Create the square element
   weatherSquare = document.createElement('div');
   weatherSquare.className = `weather-square ${weatherClass}`;
-  
-  // Add extra elements for rain and snow effects
-  let extraElements = '';
-  if (weatherClass === 'rain') {
-    extraElements = '<div class="raindrop-1"></div><div class="raindrop-2"></div><div class="raindrop-3"></div><div class="raindrop-4"></div><div class="raindrop-5"></div><div class="raindrop-6"></div><div class="raindrop-7"></div><div class="raindrop-8"></div>';
-  } else if (weatherClass === 'snow') {
-    extraElements = '<div class="snowflake-1"></div><div class="snowflake-2"></div><div class="snowflake-3"></div><div class="snowflake-4"></div><div class="snowflake-5"></div><div class="snowflake-6"></div><div class="snowflake-7"></div><div class="snowflake-8"></div><div class="snowflake-9"></div><div class="snowflake-10"></div>';
-  }
-  
   weatherSquare.innerHTML = `
     <h3>${title}</h3>
     <div class="temp">${temp}°C</div>
     <div class="desc">${desc}</div>
     <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px;">${niceDate}</div>
-    ${extraElements}
   `;
 
   // Add the square to the content wrapper
@@ -185,4 +177,3 @@ function showWeatherCard(mockData) {
   // Add class to change flexbox behavior (moves main container to left)
   contentWrapper.classList.add('has-square');
 }
-

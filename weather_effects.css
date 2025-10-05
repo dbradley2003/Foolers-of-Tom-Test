@@ -1,0 +1,254 @@
+/* Weather Effects for Rain, Snow, Clear */
+
+.weather-square {
+  overflow: hidden;
+}
+
+/* Rain weather effect */
+.weather-square.rain {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: white;
+}
+
+.weather-square.rain::before {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 10%;
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  animation: raindrop 1.5s linear infinite;
+}
+
+.weather-square.rain::after {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 30%;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  animation: raindrop 2s linear infinite 0.5s;
+}
+
+.weather-square.rain .raindrop-1 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  animation: raindrop 1.8s linear infinite 1s;
+}
+
+.weather-square.rain .raindrop-2 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 70%;
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  animation: raindrop 2.2s linear infinite 0.3s;
+}
+
+.weather-square.rain .raindrop-3 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 90%;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  animation: raindrop 1.6s linear infinite 0.8s;
+}
+
+.weather-square.rain .raindrop-4 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 25%;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  animation: raindrop 1.9s linear infinite 0.4s;
+}
+
+.weather-square.rain .raindrop-5 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 60%;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  animation: raindrop 2.1s linear infinite 1.2s;
+}
+
+.weather-square.rain .raindrop-6 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 80%;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  animation: raindrop 1.7s linear infinite 0.6s;
+}
+
+.weather-square.rain .raindrop-7 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 40%;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  animation: raindrop 2.3s linear infinite 1.4s;
+}
+
+.weather-square.rain .raindrop-8 {
+  content: '|';
+  position: absolute;
+  top: -20px;
+  left: 75%;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  animation: raindrop 1.4s linear infinite 0.1s;
+}
+
+@keyframes raindrop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(320px); opacity: 0; }
+}
+
+/* Snow weather effect */
+.weather-square.snow {
+  background: linear-gradient(135deg, #ddd6fe 0%, #a5b4fc 100%);
+  color: #1e293b;
+}
+
+.weather-square.snow::before {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 10%;
+  font-size: 20px;
+  color: white;
+  animation: snowfall 3s linear infinite;
+}
+
+.weather-square.snow::after {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  right: 20%;
+  font-size: 15px;
+  color: white;
+  animation: snowfall 4s linear infinite 1s;
+}
+
+.weather-square.snow .snowflake-1 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 30%;
+  font-size: 18px;
+  color: white;
+  animation: snowfall 3.5s linear infinite 0.5s;
+}
+
+.weather-square.snow .snowflake-2 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  font-size: 16px;
+  color: white;
+  animation: snowfall 4.2s linear infinite 1.5s;
+}
+
+.weather-square.snow .snowflake-3 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 70%;
+  font-size: 14px;
+  color: white;
+  animation: snowfall 3.8s linear infinite 0.8s;
+}
+
+.weather-square.snow .snowflake-4 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 90%;
+  font-size: 12px;
+  color: white;
+  animation: snowfall 4.5s linear infinite 2s;
+}
+
+.weather-square.snow .snowflake-5 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 15%;
+  font-size: 13px;
+  color: white;
+  animation: snowfall 3.2s linear infinite 0.2s;
+}
+
+.weather-square.snow .snowflake-6 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 85%;
+  font-size: 17px;
+  color: white;
+  animation: snowfall 4.8s linear infinite 1.8s;
+}
+
+.weather-square.snow .snowflake-7 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 25%;
+  font-size: 14px;
+  color: white;
+  animation: snowfall 3.6s linear infinite 0.7s;
+}
+
+.weather-square.snow .snowflake-8 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 60%;
+  font-size: 13px;
+  color: white;
+  animation: snowfall 4.1s linear infinite 1.3s;
+}
+
+.weather-square.snow .snowflake-9 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 5%;
+  font-size: 16px;
+  color: white;
+  animation: snowfall 3.9s linear infinite 0.9s;
+}
+
+.weather-square.snow .snowflake-10 {
+  content: '❄';
+  position: absolute;
+  top: -20px;
+  left: 95%;
+  font-size: 15px;
+  color: white;
+  animation: snowfall 4.3s linear infinite 2.1s;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(320px) rotate(360deg); opacity: 0; }
+}
+
+/* Clear weather effect - minimalistic */
+.weather-square.clear {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #475569;
+  border: 2px solid #cbd5e1;
+}
