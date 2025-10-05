@@ -90,10 +90,10 @@ function boot() {
       renderPlaceJSON(selectedPlace);
     });
 
-    checkBtn.addEventListener("click", () => {
-      if (!selectedPlace) return;
-      statusEl.textContent = `OK! Using ${selectedPlace.name} (${selectedPlace.lat.toFixed(5)}, ${selectedPlace.lng.toFixed(5)}) on ${dateEl.value}`;
-    });
+    // checkBtn.addEventListener("click", () => {
+    //   if (!selectedPlace) return;
+    //   statusEl.textContent = `OK! Using ${selectedPlace.name} (${selectedPlace.lat.toFixed(5)}, ${selectedPlace.lng.toFixed(5)}) on ${dateEl.value}`;
+    // });
   })
   .catch(err => {
     console.error("Google Maps loader error:", err);
