@@ -21,6 +21,24 @@ body {
    background: #99c3e4; 
    position: relative;
    overflow-x: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.content-wrapper.has-square {
+  justify-content: center;
 }
 
 /* Animated clouds */
@@ -169,22 +187,49 @@ header {
   border-bottom-width: 3px;
   margin-bottom: 60px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-sizing: border-box;
 
      background: linear-gradient(to right, #4a90e2, #2c5aa0);
 
 } 
 
 #place-container {
-  max-width: 500px;
+  width: 500px;
   display: block; 
   margin-left: auto; 
   margin-right: auto; 
+}
 
-  
+#enter-place{
+  font-family: roboto, sans-serif;
+  color:white;
+  font-size: 1.2rem;
+  margin-left: 33px;
+  text-align: left;
+  align-self: flex-start;
+} 
+
+#main-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Simple styles for the date input */
 #pick-date {
+
   display: block;
   margin-left: auto; 
   margin-right: auto; 
@@ -220,16 +265,17 @@ header {
 }
 
 #check {
-  width: 300px; 
+  width: 500px; 
   line-height: 45px; 
   margin-top: 10px;
   font-weight: bold; 
   border: 1px solid #a3aab0;
-  border-radius:5px;
+  border-radius:20px;
   background-color: rgb(243, 249, 250); 
   font-size: 14px;
   color:rgb(105, 102, 102); 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
 
 }
 
@@ -272,4 +318,54 @@ p {
   font-family: Roboto, sans-serif;
   font-weight: bold;
   color: rgb(164, 162, 162); 
+}
+
+#result {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.weather-square {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  z-index: 10;
+}
+
+.weather-square:hover {
+  transform: scale(1.05);
+}
+
+.weather-square h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.weather-square .temp {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.weather-square .desc {
+  font-size: 1rem;
+  opacity: 0.9;
 }

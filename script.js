@@ -1,3 +1,8 @@
+// *** BACKEND INTEGRATION NOTES ***
+// selectedPlace contains the user's selected location data: { name: string, lat: number, lng: number }
+// This is set when user selects a place from the autocomplete dropdown
+// Use this data to make your API calls to get weather information
+
 let selectedPlace = null; // always { name, lat, lng } after a selection
 
 let hasPlace = false;
@@ -104,3 +109,67 @@ boot();
 window.getSelectedPlace = () => selectedPlace;
 
 // console.log(selectedPlace) // This was logging null at startup
+const contentWrapper = document.getElementById("content-wrapper");
+let weatherSquare = null;
+
+checkBtn.addEventListener("click", () => {
+  // *** BACKEND INTEGRATION POINT ***
+  // This is where you should make your API call to get weather data
+  // You have access to:
+  // - selectedPlace: { name, lat, lng } - the user's selected location
+  // - dateEl.value - the selected date from the date picker
+  // 
+  // Example API call structure:
+  // const weatherData = await fetchWeatherData(selectedPlace.lat, selectedPlace.lng, dateEl.value);
+  // showWeatherCard(weatherData);
+  
+  // Create the weather square when button is clicked
+  showWeatherCard({ temperature: 20, description: "Sunny" });
+});
+
+function showWeatherCard(mockData) {
+  // *** BACKEND INTEGRATION FUNCTION ***
+  // This function displays the weather data in a card format
+  // Replace mockData parameter with your actual weather API response
+  // Expected data structure: { temperature: number, description: string }
+  // You can add more fields like humidity, wind speed, etc. as needed
+  
+  // Check if square already exists
+  if (weatherSquare) {
+    return; // Don't create multiple squares
+  }
+
+  const w = mockData; // *** Replace this with your API response data ***
+  const temp = (w.temperature ?? "—");
+  const desc = (w.description ?? "—");
+
+  const niceDate = new Date(dateEl.value).toLocaleDateString(
+    undefined,
+    { year: "numeric", month: "short", day: "numeric" }
+  );
+  
+  // *** BACKEND INTEGRATION NOTE ***
+  // selectedPlace.name contains the location name for display
+  // selectedPlace.lat and selectedPlace.lng contain coordinates for API calls
+  const title = selectedPlace?.name || "Selected place";
+  
+  console.log('Creating square with selectedPlace:', selectedPlace);
+  console.log('Title will be:', title);
+
+  // Create the square element
+  weatherSquare = document.createElement('div');
+  weatherSquare.className = 'weather-square';
+  weatherSquare.innerHTML = `
+    <h3>${title}</h3>
+    <div class="temp">${temp}°C</div>
+    <div class="desc">${desc}</div>
+    <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px;">${niceDate}</div>
+  `;
+
+  // Add the square to the content wrapper
+  contentWrapper.appendChild(weatherSquare);
+  
+  // Add class to change flexbox behavior (moves main container to left)
+  contentWrapper.classList.add('has-square');
+}
+
