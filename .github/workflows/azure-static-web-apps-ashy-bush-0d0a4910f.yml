@@ -48,7 +48,7 @@ jobs:
           app_build_command: |
            mkdir dist
            cp index.html script_updated.js style.css weather_effects.css mock_data.json dist/
-           api_build_command: "mvn clean package"
+          api_build_command: "mvn clean package"
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
@@ -62,6 +62,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
 
 
 
