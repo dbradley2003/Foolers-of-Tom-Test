@@ -1,6 +1,7 @@
 /* General Reset */
 body {
   text-align: center; 
+
 }
 
 * {
@@ -14,14 +15,163 @@ body {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: #35df57;
+   /* background: linear-gradient(to right, #35df57, #5231e4); */
+  /* background: #35df57; */
+
+   background: #99c3e4; 
+   position: relative;
+   overflow-x: hidden;
+}
+
+/* Animated clouds */
+.clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  opacity: 0.6;
+  animation: float 20s infinite linear;
+}
+
+.cloud:before {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+/* Cloud 1 */
+.cloud:nth-child(1) {
+  width: 80px;
+  height: 30px;
+  top: 20%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.cloud:nth-child(1):before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 10px;
+}
+
+.cloud:nth-child(1):after {
+  width: 60px;
+  height: 40px;
+  top: -15px;
+  right: 10px;
+}
+
+/* Cloud 2 */
+.cloud:nth-child(2) {
+  width: 100px;
+  height: 40px;
+  top: 40%;
+  animation-delay: -5s;
+  animation-duration: 30s;
+}
+
+.cloud:nth-child(2):before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 15px;
+}
+
+.cloud:nth-child(2):after {
+  width: 70px;
+  height: 50px;
+  top: -20px;
+  right: 15px;
+}
+
+/* Cloud 3 */
+.cloud:nth-child(3) {
+  width: 60px;
+  height: 25px;
+  top: 60%;
+  animation-delay: -10s;
+  animation-duration: 35s;
+}
+
+.cloud:nth-child(3):before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 10px;
+}
+
+.cloud:nth-child(3):after {
+  width: 50px;
+  height: 35px;
+  top: -15px;
+  right: 10px;
+}
+
+/* Cloud 4 */
+.cloud:nth-child(4) {
+  width: 90px;
+  height: 35px;
+  top: 80%;
+  animation-delay: -15s;
+  animation-duration: 28s;
+}
+
+.cloud:nth-child(4):before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 12px;
+}
+
+.cloud:nth-child(4):after {
+  width: 65px;
+  height: 45px;
+  top: -18px;
+  right: 12px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(calc(100vw + 100px));
+  }
 }
 
 header {
-  background: #5231e4;
-  color: #d9d9e6;
+  /* background: #5231e4; */
+   background: linear-gradient(90deg, #4a90e2, #2c5aa0);
+  color: #fff;
+  
+  /* color: #d9d9e6; */
   padding: 20px;
   text-align: center;
+  border-bottom: #212427;
+  border-bottom-width: 3px;
+  margin-bottom: 60px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+     background: linear-gradient(to right, #4a90e2, #2c5aa0);
+
 } 
 
 #place-container {
@@ -32,7 +182,6 @@ header {
 
   
 }
-
 
 /* Simple styles for the date input */
 #pick-date {
@@ -51,10 +200,11 @@ header {
   font: inherit;
   line-height: 1.5;
   background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #pick-date:hover {
-  border-color: #b6c0c9;
+  border-color: #8198ad;
 }
 
 #pick-date:focus {
@@ -71,13 +221,15 @@ header {
 
 #check {
   width: 300px; 
-  line-height: 30px; 
+  line-height: 45px; 
   margin-top: 10px;
   font-weight: bold; 
-  border: 1px solid #212427;
-  border-radius: 10px;
-  background-color: whitesmoke; 
+  border: 1px solid #a3aab0;
+  border-radius:5px;
+  background-color: rgb(243, 249, 250); 
   font-size: 14px;
+  color:rgb(105, 102, 102); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -85,26 +237,39 @@ header {
   display:block; 
   margin-left: auto; 
   margin-right: auto; 
-  height:240px;
-  border-radius:12px;
+  height:350px;
+  /* border-radius:12px; */
   margin-top:10px;
-  border: 1px solid black;
+  border: 1px solid gray;
   width: 500px; 
 
 }
 
+#enter-place {
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
 #map {
     height: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      /* overflow: hidden;   */
   }
 
 #check:enabled:hover {
-  background-color: rgb(145, 145, 254);
+  background-color:  #4a90e2;
+  color:  white; 
 }
+
+#check:disabled {
+  color: rgb(185, 183, 183); 
+ 
+}
+
 
 
 
 p {
   font-family: Roboto, sans-serif;
   font-weight: bold;
-  color: gray; 
+  color: rgb(164, 162, 162); 
 }

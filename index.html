@@ -6,6 +6,8 @@
   <title>My Website</title>
   <link rel="stylesheet" href="style.css" />
 
+  <script src="https://kit.fontawesome.com/de5af4da40.js" crossorigin="anonymous"></script>
+
     <!-- <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCstlpP7HWpEngT5p7YGjf_mxZ3AD-4C8Y
 "
@@ -15,18 +17,25 @@
  
 
 </head>
+<div class="gradient-transition"></div>
 <body>
+  <div class="clouds">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
 
   <header>
-    <h1>Space Apps</h1>
-    Website Template 
+    <h1><i class="fa-solid fa-bolt-lightning"></i>  Weather Genie </h1>
+    Choose a date and location to get the weather
    
   </header>
 
 
    
 
-    <p style="font-family: roboto, sans-serif" >Search for a place here:</p>
+    <p style="font-family: roboto, sans-serif; color:white;  font-size: 1.2rem;" id="enter-place">Enter Place:</p>
 
     <div id="place-container"></div>
     <div id="map-container"> 
@@ -36,7 +45,7 @@
 
     <input id = "pick-date" type = "date"> </input>
 
-    <button id="check" disabled>Find out the Weather</button>
+    <button id="check">Find out Weather</button>
 
     <div id="status"></div>
     <div id="summary"></div>
